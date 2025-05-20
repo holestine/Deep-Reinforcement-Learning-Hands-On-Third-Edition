@@ -1,0 +1,106 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Chapter 15: Check Environment",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "01_check_env.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter15",
+        },
+        {
+            "name": "Chapter 15: Train A2C",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "02_train_a2c.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter15",
+            "args": [
+                "--dev",
+                "cuda",
+                "--name",
+                "test"
+             ]
+             // To record the model in action use a command similar to the following:
+             //     ./adhoc/record_a2c.sh saves/a2c-test/best_+0.530_2000.dat a2c-res/
+        },
+        {
+            "name": "Chapter 15: Play A2C",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "03_play_a2c.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter15",
+            "args": [
+                "--model",
+                "saves/a2c-test/best_+2.093_3208000.dat"
+             ]
+        },
+        {
+            "name": "Chapter 15: Train DDPG",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "04_train_ddpg.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter15",
+            "args": [
+                "--dev",
+                "cuda",
+                "--name",
+                "test"
+             ]
+        },
+        {
+            "name": "Chapter 15: Play DDPG",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "05_play_ddpg.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter15",
+            "args": [
+                "--model",
+                "saves/ddpg-test/best_+0.028_19000.dat"
+             ]
+        },
+        {
+            "name": "Chapter 15: Train D4PG",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "06_train_d4pg.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter15",
+            "args": [
+                "--dev",
+                "cuda",
+                "--name",
+                "test"
+             ]
+        },
+        {
+            "name": "Chapter 15: Play D4PG",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "05_play_ddpg.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter15",
+            "args": [
+                "--model",
+                "saves/d4pg-test/best_+5.498_334000.dat",
+                "--record",
+                "recordings"
+             ]
+        },
+    ]
+}
