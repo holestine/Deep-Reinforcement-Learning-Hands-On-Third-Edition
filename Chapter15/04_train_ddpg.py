@@ -57,10 +57,8 @@ if __name__ == "__main__":
     env = gym.make(common.ENV_ID)
     test_env = gym.make(common.ENV_ID)
 
-    act_net = model.DDPGActor(env.observation_space.shape[0],
-                              env.action_space.shape[0]).to(device)
-    crt_net = model.DDPGCritic(env.observation_space.shape[0],
-                               env.action_space.shape[0]).to(device)
+    act_net = model.DDPGActor(env.observation_space.shape[0], env.action_space.shape[0]).to(device)
+    crt_net = model.DDPGCritic(env.observation_space.shape[0], env.action_space.shape[0]).to(device)
     print(act_net)
     print(crt_net)
     tgt_act_net = ptan.agent.TargetNet(act_net)
@@ -68,8 +66,7 @@ if __name__ == "__main__":
 
     writer = SummaryWriter(comment="-ddpg_" + args.name)
     agent = model.AgentDDPG(act_net, device=device)
-    exp_source = ptan.experience.ExperienceSourceFirstLast(
-        env, agent, gamma=GAMMA, steps_count=1)
+    exp_source = ptan.experience.ExperienceSourceFirstLast(env, agent, gamma=GAMMA, steps_count=1)
     buffer = ptan.experience.ExperienceReplayBuffer(exp_source, buffer_size=REPLAY_SIZE)
     act_opt = optim.Adam(act_net.parameters(), lr=LEARNING_RATE)
     crt_opt = optim.Adam(crt_net.parameters(), lr=LEARNING_RATE)
@@ -77,8 +74,7 @@ if __name__ == "__main__":
     frame_idx = 0
     best_reward = None
     with ptan.common.utils.RewardTracker(writer) as tracker:
-        with ptan.common.utils.TBMeanTracker(
-                writer, batch_size=10) as tb_tracker:
+        with ptan.common.utils.TBMeanTracker(writer, batch_size=10) as tb_tracker:
             while True:
                 frame_idx += 1
                 buffer.populate(1)
