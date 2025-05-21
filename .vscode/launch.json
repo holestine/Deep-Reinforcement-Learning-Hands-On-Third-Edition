@@ -97,7 +97,7 @@
             "cwd": "${workspaceFolder}/Chapter15",
             "args": [
                 "--model",
-                "saves/d4pg-test/best_+5.498_334000.dat",
+                "saves/d4pg-test/best_+23.278_5201000.dat",
                 "--record",
                 "recordings"
              ]
