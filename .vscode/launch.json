@@ -102,5 +102,33 @@
                 "recordings"
              ]
         },
+        {
+            "name": "Chapter 16: Train PPO",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "03_train_ppo.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter16",
+            "args": [
+                "--dev",
+                "cpu",
+                "--name",
+                "test"
+             ]
+        },
+        {
+            "name": "Chapter 16: Play PPO",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "02_play.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/Chapter16",
+            "args": [
+                "--model",
+                "saves/ppo-test-pybullet/best_+1852.317_4500000.dat",
+                "--record",
+                "recordings"
+             ]
+        },
     ]
 }
